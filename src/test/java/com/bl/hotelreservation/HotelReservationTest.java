@@ -2,7 +2,6 @@ package com.bl.hotelreservation;
 
 import org.junit.Test;;
 import org.junit.Assert;
-
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -29,7 +28,7 @@ public class HotelReservationTest {
         hotelReservation.addHotel("Ridgewood", 5, 220,150);
         LocalDate startDate = LocalDate.of(2021, Month.SEPTEMBER, 10);
         LocalDate endDate = LocalDate.of(2021, Month.SEPTEMBER, 11);
-        Hotel hotel = hotelReservation.getCheapestHotel(startDate, endDate);
+        Hotel hotel = hotelReservation.getCheapestHotelOnWeekDay(startDate, endDate);
         Assert.assertEquals("Bridgewood", hotel.getHotelName());
 
     }
@@ -43,3 +42,4 @@ public class HotelReservationTest {
         System.out.println(hotelRegularCustomerCost);
     }
 }
+

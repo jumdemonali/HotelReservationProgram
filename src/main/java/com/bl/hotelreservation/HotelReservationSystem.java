@@ -30,8 +30,12 @@ public class HotelReservationSystem {
     public ArrayList<Hotel> getHotelList() {
         return hotelList;
     }
-    public Hotel getCheapestHotel(LocalDate startDate, LocalDate endDate) {
-
+    public Hotel getCheapestHotelOnWeekDay(LocalDate startDate, LocalDate endDate) {
+        long numberOfDays = ChronoUnit.DAYS.between(startDate, endDate);
+        Optional<Hotel> sortedHotelList = hotelList.stream().min(Comparator.comparing(Hotel::getWeekdayRegularCustomerCost));
+        return sortedHotelList.get();
+    }
+    public Hotel getCheapestHotelOnWeekEnd(LocalDate startDate, LocalDate endDate) {
         long numberOfDays = ChronoUnit.DAYS.between(startDate, endDate);
         Optional<Hotel> sortedHotelList = hotelList.stream().min(Comparator.comparing(Hotel::getWeekdayRegularCustomerCost));
         return sortedHotelList.get();
