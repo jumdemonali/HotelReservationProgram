@@ -20,6 +20,16 @@ public class HotelReservationSystem {
         hotelList.add(hotel);
         return true;
     }
+    public void printHotelList() {
+        for (Hotel list : hotelList) {
+            System.out.println("\tHotel Details: " + list.getHotelName()
+                    + "\t\tRates per regular Customer: " + "Week day Rate:" + list.getWeekdayRegularCustomerCost() + "$"
+                    + "Weekend day Rate:" + list.getWeekendRegularCustomerCost() + "$");
+        }
+    }
+    public ArrayList<Hotel> getHotelList() {
+        return hotelList;
+    }
     public Hotel getCheapestHotel(LocalDate startDate, LocalDate endDate) {
 
         long numberOfDays = ChronoUnit.DAYS.between(startDate, endDate);
